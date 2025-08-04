@@ -1,0 +1,234 @@
+/* Interactive Speakers Styles */
+
+.speaker-interactive-card {
+  position: relative;
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out both;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.speaker-interactive-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* Specialty Tag */
+.specialty-tag {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #b30000;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  z-index: 10;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(179, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.speaker-interactive-card:hover .specialty-tag {
+  background: #dc2626;
+  transform: translateX(-50%) translateY(-5px);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.6);
+}
+
+/* Speaker Image Container */
+.speaker-image-container {
+  margin-top: 35px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.speaker-image-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid transparent;
+  background: linear-gradient(45deg, #dc2626, #b91c1c);
+  padding: 4px;
+  transition: all 0.4s ease;
+}
+
+.speaker-interactive-card:hover .speaker-image-wrapper {
+  transform: rotateY(10deg) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(220, 38, 38, 0.4);
+}
+
+.speaker-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.speaker-interactive-card:hover .speaker-image {
+  transform: scale(1.1);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(185, 28, 28, 0.2));
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 3;
+}
+
+.speaker-interactive-card:hover .image-overlay {
+  opacity: 1;
+}
+
+/* Speaker Name Container */
+.speaker-name-container {
+  position: relative;
+}
+
+.speaker-name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.speaker-interactive-card:hover .speaker-name {
+  color: #dc2626;
+  transform: translateY(-2px);
+}
+
+.click-indicator {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.speaker-interactive-card:hover .click-indicator {
+  opacity: 1;
+  transform: translateY(0);
+  color: #dc2626;
+}
+
+/* Modal Styles */
+.modal-content {
+  animation: modalSlideIn 0.4s ease-out;
+  transform-origin: center;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .speaker-interactive-card {
+    margin-bottom: 60px;
+  }
+  
+  .specialty-tag {
+    font-size: 0.75rem;
+    padding: 6px 16px;
+  }
+  
+  .speaker-image-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .speaker-name {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .speaker-image-wrapper {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .speaker-name {
+    font-size: 1.25rem;
+  }
+  
+  .specialty-tag {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+  
+  .speaker-image-container {
+    margin-top: 0;
+  }
+}
+
+/* Subtle Glow Effects */
+.speaker-interactive-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, transparent, rgba(220, 38, 38, 0.1), transparent);
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.speaker-interactive-card:hover::before {
+  opacity: 1;
+}
+
+/* Professional Hover States */
+.speaker-interactive-card:active {
+  transform: translateY(-8px) scale(1.01);
+}
+
+/* Loading Animation for Images */
+.speaker-image {
+  background: linear-gradient(90deg, #374151, #4b5563, #374151);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
